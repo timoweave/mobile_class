@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+npm run json-server &
+
+npm run ionic-server &
+
+# use .stoprc to kill all these processes

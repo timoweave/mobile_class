@@ -1,0 +1,29 @@
+<ion-view view-title="Contact Us">
+    <ion-content>
+
+        <div class="card">
+            <div class="item item-divider">
+                Location Information
+            </div>
+            <div class="item item-text-wrap">
+                <h3>Our Address</h3>
+                <ul>
+                    <li>{{address.street}}</li>
+                    <li>{{address.area}}</li>
+                    <li>{{address.city}}</li>
+                    <li>{{address.country}}</li>
+                    <li><i class="icon ion-android-call"></i>: {{phone}}</li>
+                    <li><i class="icon ion-printer"></i>: {{fax}}</li>
+                    <li><i class="icon ion-android-mail"></i>: {{email}}</li>
+                </ul>
+            </div>
+            <div class="button-bar">
+                <button class="button {{action.color}} icon-left {{action.icon}}"
+                        ng-repeat="action in actions">
+                    {{action.label}}
+                </button>
+            </div>
+        </div>
+        
+    </ion-content>
+</ion-view>

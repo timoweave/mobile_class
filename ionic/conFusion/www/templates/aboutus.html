@@ -1,0 +1,23 @@
+<ion-view view-title="About Us">
+  <ion-content>
+
+      <div class="card">
+          <div class="item item-divider">Our History</div>
+          <div class="item item-text-wrap">
+              <p ng-repeat="history in histories">{{history}}</p>
+          </div>
+      </div>
+
+
+      <div class="list card">
+          <div class="item item-divider">Corporate Leadership</div>
+          <div class="item item-thumbnail-left item-text-wrap" ng-repeat="leader in leaders">
+              <img alt="{{baseURL + leader.image}}" ng-src="{{baseURL + leader.image}}"/>
+              <h3>{{leader.name}}</h3>
+              <h4>{{leader.designation}}</h4>
+              <p>{{leader.description}}</p>
+          </div>
+      </div>
+      
+  </ion-content>
+</ion-view>

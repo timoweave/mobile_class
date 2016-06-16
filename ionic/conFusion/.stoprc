@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+killall json-server
+
+killall ionic-server
+
+
+# kill all .startrc processes
