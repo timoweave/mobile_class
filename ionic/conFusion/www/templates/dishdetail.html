@@ -1,8 +1,15 @@
 <ion-view view-title="Dish Details">
+
+    <ion-nav-buttons side="secondary"> <!-- add button to ion-view "bar" -->
+        <div class="buttons">
+            <button class="button button-icon icon ion-android-more-horizontal"
+                    ng-click="openPopoverMenu($event, dish)">
+            </button>
+        </div>
+    </ion-nav-buttons>
+    
     <ion-content>
         
-         <!-- <h1>Dish Details</h1> -->
-
         <div class="card">
             <div class="item item-text-wrap">
                 <img alt="{{baseURL + dish.image}}" ng-src="{{baseURL + dish.image}}"/>
@@ -25,6 +32,7 @@
                                type="text"/>
                     </span>
                 </h5>
+                
                 <ul class="list">
                     <li ng-repeat="comment in dish.comments | orderBy:orderText">
                         <blockquote>
@@ -35,6 +43,7 @@
                         </blockquote>
                     </li>
                 </ul>
+                
             </div>
         </div>
         

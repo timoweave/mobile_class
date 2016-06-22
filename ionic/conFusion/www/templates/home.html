@@ -6,11 +6,15 @@
                 Our Lispmacking Culinary Creations
                 <span class="badge badge-assertive">{{dish.label}}</span>
             </div>
-            <div class="item item-thumbnail-left item-text-wrap">
+            <ion-item class="item item-thumbnail-left item-text-wrap"
+                 href="#/app/menu/{{dish.id}}">
                 <img alt="Uthappizza" ng-src="{{baseURL+dish.image}}"/>
-                <h2>{{dish.name}} <span class="badge">{{dish.price | currency}}</span></h2>
+                <h2>{{dish.name}}
+                    <span class="badge">{{dish.price | currency}}
+                    </span>
+                </h2>
                 <p>{{dish.description}}</p>
-            </div>
+            </ion-item>
         </div>
 
         <div class="card">
@@ -19,8 +23,9 @@
                 <span class="badge badge-assertive">{{promotion.label}}</span>
             </div>
             <div class="item item-thumbnail-left item-text-wrap">
-                <img alt="{{baseURL + promotion.image}}" ng-src="{{baseURL + promotion.image}}"/>
-                <h2>{{promotion.name}}
+                <img alt="{{baseURL + promotion.image}}"
+                     ng-src="{{baseURL + promotion.image}}"/>
+                <h2 href="#/app/menu/{{promotion.id}}">{{promotion.name}}
                     <span class="badge">{{promotion.price | currency}}</span>
                 </h2>
                 <p>{{promotion.description}}</p>

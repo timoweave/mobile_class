@@ -10,6 +10,7 @@
     
     <ion-content>
         
+        <!-- <ion-list show-reorder="true">  -->
         <ion-list>
             <ion-item ng-repeat="dish in dishes | filter:{category: filterText}"
                       href="#/app/menu/{{dish.id}}" class="item-thumbnail-left">
@@ -19,6 +20,14 @@
                     <span class="badge badge-assertive">{{dish.label}}</span>
                 </h2>
                 <p>{{dish.description}}</p>
+                <ion-option-button class="button-assertive icon ion-plus-circled"
+                                   ng-click="addFavorite(dish.id)">
+                </ion-option-button>
+                <!-- 
+                <ion-reorder-button class="icon ion-navicon"
+                                    on-reorder="moveDish(dish, $fromIndex, $toIndex">
+                </ion-reorder-button>
+                -->
             </ion-item>
         </ion-list>
         

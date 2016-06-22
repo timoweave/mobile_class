@@ -1,0 +1,67 @@
+<ion-modal-view>
+    
+    <ion-header-bar>
+        <h1 class="title">Table Reservation</h1>
+        <div class="buttons">
+            <button class="button button-clear button-stable"
+                    ng-click="closeReserveTable()">
+                Close
+            </button>
+        </div>
+    </ion-header-bar>
+    
+    <ion-content>
+
+        <form id="reserveTableForm"
+              name="reserveTableForm"
+              ng-submit="doReserveTable()">
+
+            <div class="list">
+
+                <label class="item item-input item-select">
+                    <span class="input-label">Number of Guest</span>
+                    <select ng-model="reservation.numGuests">
+                        <option value="{{n}}" ng-repeat="n in [1,2,3,4,5,6]">
+                            {{n}}
+                        </option>
+                    </select>
+                </label>
+                
+                <label class="item item-toggle">
+                    Smoking
+                    <label class="toggle toggle-assertive">
+                        <input type="checkbox" ng-model="reservation.smoking">
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Date</span>
+                    <input type="date"
+                           name="reserveTableDate"
+                           ng-model="reservation.date">
+                </label>
+
+                <label class="item item-input">
+                    <span class="input-label">Time</span>
+                    <input type="time"
+                           name="reserveTableTime"
+                           min="11:00:00"
+                           max="21:00:00"
+                           ng-model="reservation.time">
+                </label>
+
+                <label class="item">
+                    <button class="button button-block button-positive"
+                            type="submit">
+                        Reserve Table
+                    </button>
+                </label>
+                
+            </div>
+        </form>
+    </ion-content>
+    
+</ion-modal-view>

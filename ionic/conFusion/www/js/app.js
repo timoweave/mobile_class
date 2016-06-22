@@ -71,6 +71,26 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
     }
   })
 
+  .state('app.favorites', {
+    url: '/favorites',
+    views: {
+      'mainContent': {
+        templateUrl: 'templates/favorites.html',
+        controller: 'FavoriteController'
+      }
+    }
+  })
+
+  .state('app.feedback', {
+    url: '/feedback',
+    views: {
+      'mainContent': {
+        templateUrl: 'templates/feedback.html',
+        controller: 'FeedbackController'
+      }
+    }
+  })
+
   .state('app.dishdetails', {
     url: '/menu/:id',
     views: {
