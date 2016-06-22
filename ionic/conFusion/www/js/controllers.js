@@ -279,7 +279,7 @@ function dishDetailController($scope, $stateParams, menuFactory, favoriteFactory
                 );
 
   $ionicPopover
-  .fromTemplateUrl('templates/dishDetailMenu.html', { scope: $scope })
+  .fromTemplateUrl('templates/dish-detail-popover.html', { scope: $scope })
   .then(function(popover) {
     $scope.popoverMenu = popover;
     $scope.addFavorite = function() {
