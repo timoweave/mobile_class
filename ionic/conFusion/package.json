@@ -4,7 +4,9 @@
   "description": "An Ionic project",
   "scripts": {
       "json-server": "json-server --watch json-server/db.json --static json-server/public",
-      "ionic-server" : "ionic serve --lab",
+      "ionic-lab" : "ionic serve --serverlogs --consolelogs --lab",
+      "ionic-ios" : "ionic serve --serverlogs --consolelogs --platform ios",
+      "ionic-android" : "ionic serve --serverlogs --consolelogs --platform android",      
       "start": "./.startrc",
       "stop" : "./.stoprc"
   },
