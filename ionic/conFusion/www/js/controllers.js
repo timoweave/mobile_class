@@ -311,7 +311,7 @@ function dishDetailController($scope, $stateParams, menuFactory, favoriteFactory
   $scope.$on('popoverMenu.removed', function() {
   });
 
-  $ionicModal.fromTemplateUrl('templates/feedback.html', {
+  $ionicModal.fromTemplateUrl('templates/dish-comment.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.feedbackModal = modal;

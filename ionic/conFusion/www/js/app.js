@@ -85,7 +85,7 @@ angular.module('conFusion', ['ionic', 'conFusion.controllers', 'conFusion.servic
     url: '/feedback',
     views: {
       'mainContent': {
-        templateUrl: 'templates/feedback.html',
+        templateUrl: 'templates/dish-comment.html',
         controller: 'FeedbackController'
       }
     }
