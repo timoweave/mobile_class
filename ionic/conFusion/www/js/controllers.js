@@ -254,28 +254,27 @@ function appCtrl($scope, $ionicModal, $timeout, $localStorage, $cordovaCamera, $
       }
     }
 
-    $scope.pickImages = function() {
-      $scope.pickImageSource = [];
-
-      window.imagePicker.getPictures(good_pick, bad_pick);
-
-      function good_pick(results)
-      {
-        for (var i = 0; i < results.length; i++) {
-          console.log('Image URI: ' + results[i]);
-          $scope.pickImageSource.push(results[i]);
+    $ionicPlatform.ready(function() {      
+      $scope.pickImages = function() {
+        $scope.pickImageSource = [];
+        
+        window.imagePicker.getPictures(good_pick, bad_pick);
+        
+        function good_pick(results)
+        {
+          for (var i = 0; i < results.length; i++) {
+            console.log('Image URI: ' + results[i]);
+            $scope.pickImageSource.push(results[i]);
+          }
         }
-      }
-      function bad_pick(error) {
-        console.log('Error: ' + error);
-      }
-    };
+        function bad_pick(error) {
+          console.log('Error: ' + error);
+        }
+      };
+    });
 
-      
-    $scope.takePicture = function() {
-
-      $ionicPlatform.ready(function() {
-
+    $ionicPlatform.ready(function() {      
+      $scope.takePicture = function() {
         var options = {
           quality: 50,
           destinationType: Camera.DestinationType.DATA_URL,
@@ -297,9 +296,9 @@ function appCtrl($scope, $ionicModal, $timeout, $localStorage, $cordovaCamera, $
         function bad_pic(err) {
           console.log(err);
         }
-      });
+      };
       // $scope.registerModal.show();
-    };
+    });
   });
 
   ////*//
