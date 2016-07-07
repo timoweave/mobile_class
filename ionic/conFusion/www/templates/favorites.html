@@ -10,15 +10,18 @@
     
     <ion-content>
         <ion-list show-delete="shouldShowDeleteFavorite">
-            <ion-item ng-repeat="dish in favorites() | filter:{category: filterText}"
+            <ion-item ng-repeat="dish in favorites | filter:{category: filterText}"
                       href="#/app/menu/{{dish.id}}" class="item-thumbnail-left"
                       on-swipe-left="deleteFavorite(dish.id)">
-                <img alt="{{baseURL + dish.image}}" ng-src="{{baseURL+dish.image}}"/>
+                <img alt="{{imageURL + dish.image}}" ng-src="{{imageURL + dish.image}}"/>
                 <h2>{{dish.name}}
                     <span style="font-size:75%">{{dish.price | currency}}</span>
                     <span class="badge badge-assertive">{{dish.label}}</span>
                 </h2>
                 <p>{{dish.description}}</p>
+                <ion-option-button class="button-assertive icon ion-minus-circled"
+                                   ng-click="deleteFavorite(dish.id)">
+                </ion-option-button>
                 <ion-delete-button class="icon ion-minus-circled"
                                    ng-click="deleteFavorite(dish.id)">
                 </ion-delete-button>

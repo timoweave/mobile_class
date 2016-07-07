@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-npm run json-server &
+# npm run json-server &
+
+npm run image-server &
 
 npm run ionic-server &
 

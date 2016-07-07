@@ -14,13 +14,13 @@
         <ion-list>
             <ion-item ng-repeat="dish in dishes | filter:{category: filterText}"
                       href="#/app/menu/{{dish.id}}" class="item-thumbnail-left">
-                <img alt="{{baseURL + dish.image}}" ng-src="{{baseURL+dish.image}}"/>
+                <img alt="{{imageURL + dish.image}}" ng-src="{{imageURL + dish.image}}"/>
                 <h2>{{dish.name}}
                     <span style="font-size:75%">{{dish.price | currency}}</span>
                     <span class="badge badge-assertive">{{dish.label}}</span>
                 </h2>
                 <p>{{dish.description}}</p>
-                <ion-option-button class="button-assertive icon ion-plus-circled"
+                <ion-option-button class="button-balanced icon ion-plus-circled"
                                    ng-click="addFavorite(dish.id)">
                 </ion-option-button>
                 <!-- 

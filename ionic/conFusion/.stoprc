@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-killall json-server
+# killall json-server
+
+# need to kill image-server manually (python -m Simple....)
 
 killall ionic-server
 
