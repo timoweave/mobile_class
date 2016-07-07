@@ -3,13 +3,14 @@
 
 1. git clone https://github.com/timoweave/mobile_class.git [assign2](https://github.com/timoweave/mobile_class.git) 
 1. cd ionic/conFusion
-1. npm run json-server (RESTFUL API)
+1. npm run images-server (python -m SimpleHTTPServer ...)
 1. npm run ionic-lab (APP, ios+android) or npm run ionic-ios or npm run ionic-android
 1. browser will open the app (should have launched on your browser)
 
 
 # NOTE
 
+1. add resolve, localstorage
 1. add icon to the menu (left-menu)
 1. add Popup, loading, hiding (done loading), and timeout to simulte async...
    (SPA should be fast, and does not need to do it. Just a sample of making use of services.js)
