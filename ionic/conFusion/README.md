@@ -7,6 +7,10 @@
 1. npm run ionic-lab (APP, ios+android) or npm run ionic-ios or npm run ionic-android
 1. browser will open the app (should have launched on your browser)
 
+# EMULATING on IOS
+
+1. ionic build ios
+1. ionic emulate ios
 
 # NOTE
 

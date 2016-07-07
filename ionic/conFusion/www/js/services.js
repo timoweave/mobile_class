@@ -1,12 +1,9 @@
 'use strict';
 
 angular.module('conFusion.services', ['ngResource'])
-// .constant("dataURL", "http://localhost:3000/") // for json-server localhost
-// .constant("dataURLFormat", "") // for json-server localhost
-.constant("dataURLFormat", ".json") // for firebase 
-.constant("dataURL", "https://confusionrest.firebaseio.com/") // firebase
-.constant("imageURL", "http://localhost:8180/") // local
-// .constant("imageURL", "https://confusionrest.firebaseapp.com/") // firebase public
+.constant("dataURLFormat", ".json")
+.constant("dataURL", "https://confusionrest.firebaseio.com/")
+.constant("imageURL", "public/")
 .constant("conFusionHistory", ["Started in 2010, Ristorante con Fusion quickly established itself as a culinary icon par excellence in Hong Kong. With its unique brand of world fusion cuisine that can be found nowhere else, it enjoys patronage from the A-list clientele in Hong Kong.  Featuring four of the best three-star Michelin chefs in the world, you never know what will arrive on your plate the next time you visit us.",
                                "The restaurant traces its humble beginnings to The Frying Pan, a successful chain started by our CEO, Mr. Peter Pan, that featured for the first time the world's best cuisines in a pan."])
 .factory('menuFactory', ['$resource', 'dataURL', 'dataURLFormat', menuFunc])
@@ -30,14 +27,16 @@ function localStorageServ($window) {
   };
   this.getObj = function(key, value) {
     var saved_obj = local_storage[key];
-    if (saved_obj) {
+    if (saved_obj && saved_obj.length) {
       return JSON.parse(saved_obj);
     } else {
       return value;
     }
   };
   this.setObj = function(key, value) {
-    local_storage[key] = JSON.stringify(value);
+    if ((key !== undefined) && (value !== undefined)) {
+      local_storage[key] = JSON.stringify(value);
+    }
   };
 }
 
@@ -90,12 +89,12 @@ function favoriteServiceFunc($resource, menuFactory, dataURL, dataURLFormat, $io
   self.deleteFavorite = function (dish_id) {
     console.log("srv delete favorite", dish_id);
     self.favorite_dish_list = self.favorite_dish_list
-                            .reduce(function(reminding_dishes, item) {
-                              if (dish_id !== item.id) {
-                                reminding_dishes.push(item);
-                              }
-                              return reminding_dishes;
-                            }, []);
+                              .reduce(function(reminding_dishes, item) {
+                                if (dish_id !== item.id) {
+                                  reminding_dishes.push(item);
+                                }
+                                return reminding_dishes;
+                              }, []);
     $localStorage.setObj("favorites", self.favorite_dish_list);
     console.log("srv delete favorite_dish_list", self.favorite_dish_list);
   }
@@ -151,9 +150,9 @@ function favoriteFunc($resource, dataURL, dataURLFormat, $ionicPopup, $ionicLoad
   favFac.addFavorite = function (dish_id) {
     console.log("add favorite", dish_id);
     var found_dish = favorite_dish_id_list
-                    .filter(function(item_id) {
-                      return item_id == dish_id;
-                    });
+                     .filter(function(item_id) {
+                       return item_id == dish_id;
+                     });
     if (found_dish.length === 0) {
       favorite_dish_id_list.push(dish_id);
       console.log("fac add favorite", favorite_dish_id_list);

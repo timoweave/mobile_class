@@ -173,7 +173,15 @@ angular.module('conFusion', ['ionic', 'ngCordova', 'conFusion.controllers', 'con
       }
     }
   })
-
+  .state('app.register', {
+    url : '/register',
+    views : {
+      'mainContent' : {
+        templateUrl : 'templates/register.html',
+        controller: 'RegisterController'
+      }
+    }
+  })
   .state('app.dishdetails', {
     url: '/menu/:id',
     views: {
